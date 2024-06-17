@@ -1,5 +1,8 @@
 package dev.thomasglasser.chickenengineer.primordialplayables;
 
+import dev.thomasglasser.chickenengineer.primordialplayables.data.PrimordialPlayablesDataGenerators;
+import dev.thomasglasser.chickenengineer.primordialplayables.world.item.PrimordialPlayablesItems;
+import dev.thomasglasser.chickenengineer.primordialplayables.world.level.block.PrimordialPlayablesBlocks;
 import net.minecraft.resources.ResourceLocation;
 import net.neoforged.bus.api.IEventBus;
 import org.slf4j.Logger;
@@ -16,7 +19,10 @@ public class PrimordialPlayables
 
     public PrimordialPlayables(IEventBus bus)
     {
+        PrimordialPlayablesItems.init();
+        PrimordialPlayablesBlocks.init();
 
+        bus.addListener(PrimordialPlayablesDataGenerators::onGatherData);
     }
 
     public static ResourceLocation modLoc(String path)

@@ -24,6 +24,7 @@ repositories {
             includeGroupAndSubgroups 'mezz.jei'
         }
     }
+    mavenCentral()
     mavenLocal()
 }
 
@@ -72,6 +73,8 @@ configurations {
 
 dependencies {
     implementation "net.neoforged:neoforge:${neo_version}"
+
+    jarJar implementation("dev.thomasglasser.tommylib:tommylib-neoforge-${minecraft_version}:${tommylib_version}")
 
     // Runtime
     localRuntime "maven.modrinth:jade:${jade_version}+neoforge"
