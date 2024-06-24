@@ -32,6 +32,7 @@ public class PrimordialPlayablesBlockLootSubProvider extends ExtendedBlockLootSu
 		leavesSet(PrimordialPlayablesBlocks.MANGO_LEAVES);
 		this.add(
 				PrimordialPlayablesBlocks.FRUITFUL_MANGO_LEAVES.get(),
+				// TODO: Shears or silk touch drop the leaf with the age saved in the item
 				(block) -> this.applyExplosionDecay(block,
 						LootTable.lootTable()
 								.withPool(
