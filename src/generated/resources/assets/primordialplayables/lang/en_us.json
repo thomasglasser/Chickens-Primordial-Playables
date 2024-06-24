@@ -1,7 +1,13 @@
 {
+  "block.primordialplayables.fruitful_mango_leaves": "Fruitful Mango Leaves",
+  "block.primordialplayables.mango_leaves": "Mango Leaves",
   "block.primordialplayables.mango_log": "Mango Log",
   "block.primordialplayables.mango_planks": "Mango Planks",
+  "block.primordialplayables.mango_sapling": "Mango Sapling",
   "block.primordialplayables.mango_wood": "Mango Wood",
+  "block.primordialplayables.potted_mango_sapling": "Potted Mango Sapling",
   "block.primordialplayables.stripped_mango_log": "Stripped Mango Log",
-  "block.primordialplayables.stripped_mango_wood": "Stripped Mango Wood"
+  "block.primordialplayables.stripped_mango_wood": "Stripped Mango Wood",
+  "item.primordialplayables.mango": "Mango",
+  "item.primordialplayables.unripe_mango": "Unripe Mango"
 }

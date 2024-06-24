@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/leaves",
+  "textures": {
+    "all": "primordialplayables:block/fruitful_mango_leaves_stage2"
+  }
+}
