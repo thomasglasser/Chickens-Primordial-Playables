@@ -5,12 +5,16 @@ import dev.thomasglasser.chickenengineer.primordialplayables.data.lang.Primordia
 import dev.thomasglasser.chickenengineer.primordialplayables.data.loot.PrimordialPlayablesLootTables;
 import dev.thomasglasser.chickenengineer.primordialplayables.data.models.PrimordialPlayablesItemModels;
 import dev.thomasglasser.chickenengineer.primordialplayables.data.recipes.PrimordialPlayablesRecipes;
-import java.util.concurrent.CompletableFuture;
+import dev.thomasglasser.chickenengineer.primordialplayables.data.tags.PrimordialPlayablesBlockTagsProvider;
+import dev.thomasglasser.chickenengineer.primordialplayables.data.tags.PrimordialPlayablesItemTagsProvider;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.data.PackOutput;
+import net.neoforged.neoforge.common.data.BlockTagsProvider;
 import net.neoforged.neoforge.common.data.ExistingFileHelper;
 import net.neoforged.neoforge.data.event.GatherDataEvent;
+
+import java.util.concurrent.CompletableFuture;
 
 public class PrimordialPlayablesDataGenerators {
     public static void onGatherData(GatherDataEvent event) {
@@ -22,6 +26,9 @@ public class PrimordialPlayablesDataGenerators {
         // Server
         generator.addProvider(event.includeServer(), new PrimordialPlayablesLootTables(output, provider));
         generator.addProvider(event.includeServer(), new PrimordialPlayablesRecipes(output, provider));
+        BlockTagsProvider blocks = new PrimordialPlayablesBlockTagsProvider(output, provider, existingFileHelper);
+        generator.addProvider(event.includeServer(), blocks);
+        generator.addProvider(event.includeServer(), new PrimordialPlayablesItemTagsProvider(output, provider, blocks.contentsGetter(), existingFileHelper));
 
         // Client
         generator.addProvider(event.includeClient(), new PrimordialPlayablesEnUsLanguageProvider(output));

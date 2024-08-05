@@ -24,14 +24,14 @@ import net.minecraft.world.level.block.state.properties.IntegerProperty;
 import net.minecraft.world.level.gameevent.GameEvent;
 import net.minecraft.world.phys.BlockHitResult;
 
-public class AgeingLeavesBlock extends LeavesBlock implements BonemealableBlock {
+public class AgeingFruitfulLeavesBlock extends LeavesBlock implements BonemealableBlock {
     public static final int MAX_AGE = 2;
     public static final IntegerProperty AGE = BlockStateProperties.AGE_2;
 
     private final DeferredItem<?> unripe;
     private final DeferredItem<?> ripe;
 
-    public AgeingLeavesBlock(DeferredItem<?> unripe, DeferredItem<?> ripe, Properties properties) {
+    public AgeingFruitfulLeavesBlock(DeferredItem<?> unripe, DeferredItem<?> ripe, Properties properties) {
         super(properties);
         this.unripe = unripe;
         this.ripe = ripe;

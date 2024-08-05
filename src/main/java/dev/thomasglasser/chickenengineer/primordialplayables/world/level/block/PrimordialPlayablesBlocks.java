@@ -9,8 +9,6 @@ import dev.thomasglasser.tommylib.api.world.level.block.LeavesSet;
 import dev.thomasglasser.tommylib.api.world.level.block.WoodSet;
 import dev.thomasglasser.tommylib.api.world.level.block.grower.StructureGrower;
 import it.unimi.dsi.fastutil.objects.Object2ObjectLinkedOpenHashMap;
-import java.util.List;
-import java.util.function.Supplier;
 import net.minecraft.core.BlockPos;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.world.entity.EntityType;
@@ -25,6 +23,9 @@ import net.minecraft.world.level.levelgen.structure.BuiltinStructures;
 import net.minecraft.world.level.material.MapColor;
 import net.minecraft.world.level.material.PushReaction;
 
+import java.util.List;
+import java.util.function.Supplier;
+
 public class PrimordialPlayablesBlocks {
     public static final DeferredRegister.Blocks BLOCKS = DeferredRegister.createBlocks(PrimordialPlayables.MOD_ID);
 
@@ -35,7 +36,7 @@ public class PrimordialPlayablesBlocks {
             put((randomSource) -> true, BuiltinStructures.IGLOO);
         }
     }));
-    public static final DeferredBlock<AgeingLeavesBlock> FRUITFUL_MANGO_LEAVES = registerWithItem("fruitful_mango_leaves", () -> new AgeingLeavesBlock(PrimordialPlayablesItems.UNRIPE_MANGO, PrimordialPlayablesItems.MANGO, BlockBehaviour.Properties.of()
+    public static final DeferredBlock<AgeingFruitfulLeavesBlock> FRUITFUL_MANGO_LEAVES = registerWithItem("fruitful_mango_leaves", () -> new AgeingFruitfulLeavesBlock(PrimordialPlayablesItems.UNRIPE_MANGO, PrimordialPlayablesItems.MANGO, BlockBehaviour.Properties.of()
             .mapColor(MapColor.PLANT)
             .strength(0.2F)
             .randomTicks()
