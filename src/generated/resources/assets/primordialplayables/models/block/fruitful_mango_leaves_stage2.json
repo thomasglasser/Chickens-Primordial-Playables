@@ -1,6 +1,7 @@
 {
-  "parent": "minecraft:block/leaves",
+  "parent": "primordialplayables:block/fruitful_mango_leaves_ripe",
   "textures": {
-    "all": "primordialplayables:block/fruitful_mango_leaves_stage2"
+    "0": "primordialplayables:block/fruitful_mango_leaves_stage2",
+    "particle": "primordialplayables:block/fruitful_mango_leaves_stage2"
   }
 }

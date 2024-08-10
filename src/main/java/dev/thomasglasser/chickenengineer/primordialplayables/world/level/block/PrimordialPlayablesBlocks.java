@@ -16,6 +16,7 @@ import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.CreativeModeTabs;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.SoundType;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.BlockState;
@@ -48,6 +49,7 @@ public class PrimordialPlayablesBlocks {
             .ignitedByLava()
             .pushReaction(PushReaction.DESTROY)
             .isRedstoneConductor((BlockState pState, BlockGetter pLevel, BlockPos pPos) -> false)), List.of(CreativeModeTabs.NATURAL_BLOCKS));
+    public static final DeferredBlock<SpreadingMultifaceBlock> KUDZU = registerWithItem("kudzu", () -> new SpreadingMultifaceBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.VINE)), List.of(CreativeModeTabs.NATURAL_BLOCKS));
 
     private static <T extends Block> DeferredBlock<T> registerWithItem(String name, Supplier<T> block, List<ResourceKey<CreativeModeTab>> tabs) {
         return BlockUtils.registerBlockAndItemAndWrap(BLOCKS, name, block, PrimordialPlayablesItems::register, tabs);

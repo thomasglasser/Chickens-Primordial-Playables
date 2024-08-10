@@ -7,7 +7,6 @@ import net.minecraft.advancements.critereon.StatePropertiesPredicate;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.world.flag.FeatureFlags;
-import net.minecraft.world.item.enchantment.Enchantment;
 import net.minecraft.world.item.enchantment.Enchantments;
 import net.minecraft.world.level.storage.loot.LootPool;
 import net.minecraft.world.level.storage.loot.LootTable;
@@ -31,6 +30,7 @@ public class PrimordialPlayablesBlockLootSubProvider extends ExtendedBlockLootSu
         woodSet(PrimordialPlayablesBlocks.MANGO_WOOD);
         leavesSet(PrimordialPlayablesBlocks.MANGO_LEAVES);
         add(PrimordialPlayablesBlocks.FRUITFUL_MANGO_LEAVES.get(), createAgeingFruitfulLeavesDrops(PrimordialPlayablesBlocks.FRUITFUL_MANGO_LEAVES.get()));
+        add(PrimordialPlayablesBlocks.KUDZU.get(), createShearsOnlyDrop(PrimordialPlayablesBlocks.KUDZU));
     }
 
     protected LootTable.Builder createAgeingFruitfulLeavesDrops(AgeingFruitfulLeavesBlock block) {

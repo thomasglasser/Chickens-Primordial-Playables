@@ -27,6 +27,9 @@ public class PrimordialPlayablesItemTagsProvider extends ExtendedItemTagsProvide
         tag(ItemTags.LEAVES)
                 .add(PrimordialPlayablesBlocks.FRUITFUL_MANGO_LEAVES.asItem());
 
+        tag(ItemTags.PARROT_FOOD)
+                .add(PrimordialPlayablesItems.MANGO.get());
+
         tag(ConventionalItemTags.FRUITS_FOODS)
                 .add(PrimordialPlayablesItems.MANGO.get())
                 .add(PrimordialPlayablesItems.UNRIPE_MANGO.get());

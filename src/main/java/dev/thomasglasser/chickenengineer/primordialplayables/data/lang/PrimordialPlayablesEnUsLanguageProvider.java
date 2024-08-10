@@ -17,6 +17,7 @@ public class PrimordialPlayablesEnUsLanguageProvider extends ExtendedEnUsLanguag
         add(PrimordialPlayablesBlocks.MANGO_WOOD, "Mango");
         add(PrimordialPlayablesBlocks.MANGO_LEAVES, "Mango");
         add(PrimordialPlayablesBlocks.FRUITFUL_MANGO_LEAVES.get(), "Fruitful Mango Leaves");
+        add(PrimordialPlayablesBlocks.KUDZU.get(), "Kudzu");
 
         add(PrimordialPlayablesItems.UNRIPE_MANGO.get(), "Unripe Mango");
         add(PrimordialPlayablesItems.MANGO.get(), "Mango");
