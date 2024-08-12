@@ -1,0 +1,14 @@
+{
+  "placement": {
+    "type": "minecraft:random_spread",
+    "salt": 13114716,
+    "separation": 0,
+    "spacing": 2
+  },
+  "structures": [
+    {
+      "structure": "primordialplayables:medium_mango_tree",
+      "weight": 1
+    }
+  ]
+}

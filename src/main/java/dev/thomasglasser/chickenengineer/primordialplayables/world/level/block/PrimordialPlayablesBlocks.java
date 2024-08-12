@@ -2,6 +2,7 @@ package dev.thomasglasser.chickenengineer.primordialplayables.world.level.block;
 
 import dev.thomasglasser.chickenengineer.primordialplayables.PrimordialPlayables;
 import dev.thomasglasser.chickenengineer.primordialplayables.world.item.PrimordialPlayablesItems;
+import dev.thomasglasser.chickenengineer.primordialplayables.world.level.levelgen.structure.PrimordialPlayablesStructures;
 import dev.thomasglasser.tommylib.api.registration.DeferredBlock;
 import dev.thomasglasser.tommylib.api.registration.DeferredRegister;
 import dev.thomasglasser.tommylib.api.world.level.block.BlockUtils;
@@ -20,7 +21,6 @@ import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.SoundType;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.BlockState;
-import net.minecraft.world.level.levelgen.structure.BuiltinStructures;
 import net.minecraft.world.level.material.MapColor;
 import net.minecraft.world.level.material.PushReaction;
 
@@ -33,8 +33,10 @@ public class PrimordialPlayablesBlocks {
     public static final WoodSet MANGO_WOOD = registerWoodSet("mango", MapColor.COLOR_ORANGE, MapColor.TERRACOTTA_ORANGE);
     public static final LeavesSet MANGO_LEAVES = registerLeavesSet("mango", new StructureGrower("mango", new Object2ObjectLinkedOpenHashMap<>() {
         {
-            // TODO: Mango tree structures
-            put((randomSource) -> true, BuiltinStructures.IGLOO);
+            // TODO: Chances and sapling count based
+            put((randomSource) -> randomSource.nextBoolean(), PrimordialPlayablesStructures.SMALL_MANGO_TREE);
+            put((randomSource) -> randomSource.nextBoolean(), PrimordialPlayablesStructures.MEDIUM_MANGO_TREE);
+            put((randomSource) -> randomSource.nextBoolean(), PrimordialPlayablesStructures.LARGE_MANGO_TREE);
         }
     }));
     public static final DeferredBlock<AgeingFruitfulLeavesBlock> FRUITFUL_MANGO_LEAVES = registerWithItem("fruitful_mango_leaves", () -> new AgeingFruitfulLeavesBlock(PrimordialPlayablesItems.UNRIPE_MANGO, PrimordialPlayablesItems.MANGO, BlockBehaviour.Properties.of()

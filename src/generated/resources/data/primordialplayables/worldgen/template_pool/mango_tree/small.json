@@ -1,0 +1,23 @@
+{
+  "elements": [
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "primordialplayables:mango_tree/small_1",
+        "processors": "primordialplayables:small_fruitful_mango_tree",
+        "projection": "rigid"
+      },
+      "weight": 1
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "primordialplayables:mango_tree/small_2",
+        "processors": "primordialplayables:small_fruitful_mango_tree",
+        "projection": "rigid"
+      },
+      "weight": 1
+    }
+  ],
+  "fallback": "minecraft:empty"
+}

@@ -1,0 +1,35 @@
+{
+  "processors": [
+    {
+      "delegate": {
+        "processor_type": "minecraft:rule",
+        "rules": [
+          {
+            "input_predicate": {
+              "block": "primordialplayables:mango_leaves",
+              "predicate_type": "minecraft:block_match"
+            },
+            "location_predicate": {
+              "predicate_type": "minecraft:always_true"
+            },
+            "output_state": {
+              "Name": "primordialplayables:fruitful_mango_leaves",
+              "Properties": {
+                "age": "0",
+                "distance": "7",
+                "persistent": "false",
+                "waterlogged": "false"
+              }
+            }
+          }
+        ]
+      },
+      "limit": {
+        "type": "minecraft:uniform",
+        "max_inclusive": 12,
+        "min_inclusive": 8
+      },
+      "processor_type": "minecraft:capped"
+    }
+  ]
+}
