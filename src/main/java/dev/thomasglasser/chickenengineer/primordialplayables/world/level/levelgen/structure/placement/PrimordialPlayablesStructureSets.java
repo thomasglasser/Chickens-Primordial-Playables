@@ -21,14 +21,16 @@ public class PrimordialPlayablesStructureSets {
 
         context.register(
                 SMALL_MANGO_TREE,
-                // The salt is the word "mango" numerically
-                new StructureSet(holderGetter.getOrThrow(PrimordialPlayablesStructures.SMALL_MANGO_TREE), new RandomSpreadStructurePlacement(2, 0, RandomSpreadType.LINEAR, 13114715)));
+                // The salt is the word "smango" numerically
+                new StructureSet(holderGetter.getOrThrow(PrimordialPlayablesStructures.SMALL_MANGO_TREE), new RandomSpreadStructurePlacement(2, 0, RandomSpreadType.LINEAR, 1913114715)));
         context.register(
                 MEDIUM_MANGO_TREE,
-                new StructureSet(holderGetter.getOrThrow(PrimordialPlayablesStructures.MEDIUM_MANGO_TREE), new RandomSpreadStructurePlacement(2, 0, RandomSpreadType.LINEAR, 13114716)));
+                // The salt is the words "memgo" numerically
+                new StructureSet(holderGetter.getOrThrow(PrimordialPlayablesStructures.MEDIUM_MANGO_TREE), new RandomSpreadStructurePlacement(4, 2, RandomSpreadType.LINEAR, 13513715)));
         context.register(
                 LARGE_MANGO_TREE,
-                new StructureSet(holderGetter.getOrThrow(PrimordialPlayablesStructures.LARGE_MANGO_TREE), new RandomSpreadStructurePlacement(32, 8, RandomSpreadType.LINEAR, 13114717)));
+                // The salt is the words "lango" numerically
+                new StructureSet(holderGetter.getOrThrow(PrimordialPlayablesStructures.LARGE_MANGO_TREE), new RandomSpreadStructurePlacement(32, 8, RandomSpreadType.LINEAR, 12114715)));
     }
 
     private static ResourceKey<StructureSet> register(String name) {
