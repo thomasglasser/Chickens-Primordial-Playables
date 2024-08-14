@@ -48,8 +48,7 @@ public class SpreadingMultifaceBlock extends MultifaceBlock implements Bonemeala
      */
     @Override
     protected BlockState updateShape(
-            BlockState state, Direction direction, BlockState neighborState, LevelAccessor level, BlockPos pos, BlockPos neighborPos
-    ) {
+            BlockState state, Direction direction, BlockState neighborState, LevelAccessor level, BlockPos pos, BlockPos neighborPos) {
         if (state.getValue(WATERLOGGED)) {
             level.scheduleTick(pos, Fluids.WATER, Fluids.WATER.getTickDelay(level));
         }
@@ -83,8 +82,7 @@ public class SpreadingMultifaceBlock extends MultifaceBlock implements Bonemeala
             spread(state, level, pos, random);
     }
 
-    protected void spread(BlockState state, Level level, BlockPos pos, RandomSource randomSource)
-    {
+    protected void spread(BlockState state, Level level, BlockPos pos, RandomSource randomSource) {
         spreader.spreadFromRandomFaceTowardRandomDirection(state, level, pos, randomSource);
     }
 

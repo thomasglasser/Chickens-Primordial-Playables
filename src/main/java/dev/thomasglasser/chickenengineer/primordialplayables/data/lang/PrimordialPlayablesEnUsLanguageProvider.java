@@ -6,8 +6,7 @@ import dev.thomasglasser.chickenengineer.primordialplayables.world.level.block.P
 import dev.thomasglasser.tommylib.api.data.lang.ExtendedEnUsLanguageProvider;
 import net.minecraft.data.PackOutput;
 
-public class PrimordialPlayablesEnUsLanguageProvider extends ExtendedEnUsLanguageProvider
-{
+public class PrimordialPlayablesEnUsLanguageProvider extends ExtendedEnUsLanguageProvider {
     public PrimordialPlayablesEnUsLanguageProvider(PackOutput output) {
         super(output, PrimordialPlayables.MOD_ID);
     }

@@ -3,6 +3,7 @@ package dev.thomasglasser.chickenengineer.primordialplayables.data.loot;
 import dev.thomasglasser.chickenengineer.primordialplayables.world.level.block.AgeingFruitfulLeavesBlock;
 import dev.thomasglasser.chickenengineer.primordialplayables.world.level.block.PrimordialPlayablesBlocks;
 import dev.thomasglasser.tommylib.api.data.loot.ExtendedBlockLootSubProvider;
+import java.util.Set;
 import net.minecraft.advancements.critereon.StatePropertiesPredicate;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.core.registries.Registries;
@@ -17,8 +18,6 @@ import net.minecraft.world.level.storage.loot.functions.SetItemCountFunction;
 import net.minecraft.world.level.storage.loot.predicates.LootItemBlockStatePropertyCondition;
 import net.minecraft.world.level.storage.loot.providers.number.ConstantValue;
 import net.minecraft.world.level.storage.loot.providers.number.UniformGenerator;
-
-import java.util.Set;
 
 public class PrimordialPlayablesBlockLootSubProvider extends ExtendedBlockLootSubProvider {
     protected PrimordialPlayablesBlockLootSubProvider(HolderLookup.Provider provider) {
@@ -48,7 +47,6 @@ public class PrimordialPlayablesBlockLootSubProvider extends ExtendedBlockLootSu
                                 .add(applyExplosionCondition(block, ripe.otherwise(unripe)))
                                 .setRolls(ConstantValue.exactly(1.0F))
                                 .apply(SetItemCountFunction.setCount(UniformGenerator.between(1.0F, 3.0F)))
-                                .apply(ApplyBonusCount.addUniformBonusCount(registries.lookupOrThrow(Registries.ENCHANTMENT).getOrThrow(Enchantments.FORTUNE)))
-                );
+                                .apply(ApplyBonusCount.addUniformBonusCount(registries.lookupOrThrow(Registries.ENCHANTMENT).getOrThrow(Enchantments.FORTUNE))));
     }
 }

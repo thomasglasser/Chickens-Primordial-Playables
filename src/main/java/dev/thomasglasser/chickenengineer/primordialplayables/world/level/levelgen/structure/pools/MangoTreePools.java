@@ -1,5 +1,7 @@
 package dev.thomasglasser.chickenengineer.primordialplayables.world.level.levelgen.structure.pools;
 
+import static net.minecraft.data.worldgen.Pools.EMPTY;
+
 import com.google.common.collect.ImmutableList;
 import com.mojang.datafixers.util.Pair;
 import dev.thomasglasser.chickenengineer.primordialplayables.PrimordialPlayables;
@@ -13,8 +15,6 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.levelgen.structure.pools.StructurePoolElement;
 import net.minecraft.world.level.levelgen.structure.pools.StructureTemplatePool;
 import net.minecraft.world.level.levelgen.structure.templatesystem.StructureProcessorList;
-
-import static net.minecraft.data.worldgen.Pools.EMPTY;
 
 public class MangoTreePools {
     public static final ResourceKey<StructureTemplatePool> SMALL = PrimordialPlayablesPools.createKey("mango_tree/small");

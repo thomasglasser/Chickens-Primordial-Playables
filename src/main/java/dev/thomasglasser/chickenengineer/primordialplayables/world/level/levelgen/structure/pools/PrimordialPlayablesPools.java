@@ -1,5 +1,7 @@
 package dev.thomasglasser.chickenengineer.primordialplayables.world.level.levelgen.structure.pools;
 
+import static net.minecraft.data.worldgen.Pools.EMPTY;
+
 import com.google.common.collect.ImmutableList;
 import dev.thomasglasser.chickenengineer.primordialplayables.PrimordialPlayables;
 import net.minecraft.core.Holder;
@@ -8,8 +10,6 @@ import net.minecraft.core.registries.Registries;
 import net.minecraft.data.worldgen.BootstrapContext;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.world.level.levelgen.structure.pools.StructureTemplatePool;
-
-import static net.minecraft.data.worldgen.Pools.EMPTY;
 
 public class PrimordialPlayablesPools {
     public static ResourceKey<StructureTemplatePool> createKey(String name) {

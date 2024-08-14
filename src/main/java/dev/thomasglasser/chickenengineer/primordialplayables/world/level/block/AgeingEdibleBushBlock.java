@@ -51,8 +51,7 @@ public class AgeingEdibleBushBlock extends EdibleBushBlock implements Bonemealab
 
     @Override
     protected ItemInteractionResult useItemOn(
-            ItemStack pStack, BlockState pState, Level pLevel, BlockPos pPos, Player pPlayer, InteractionHand pHand, BlockHitResult pHitResult
-    ) {
+            ItemStack pStack, BlockState pState, Level pLevel, BlockPos pPos, Player pPlayer, InteractionHand pHand, BlockHitResult pHitResult) {
         int i = pState.getValue(AGE);
         boolean flag = i == MAX_AGE;
         return !flag && pStack.is(Items.BONE_MEAL)

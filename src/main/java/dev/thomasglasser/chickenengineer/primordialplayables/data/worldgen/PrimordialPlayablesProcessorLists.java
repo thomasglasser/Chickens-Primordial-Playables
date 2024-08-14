@@ -2,6 +2,7 @@ package dev.thomasglasser.chickenengineer.primordialplayables.data.worldgen;
 
 import dev.thomasglasser.chickenengineer.primordialplayables.PrimordialPlayables;
 import dev.thomasglasser.chickenengineer.primordialplayables.world.level.block.PrimordialPlayablesBlocks;
+import java.util.List;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.data.worldgen.BootstrapContext;
 import net.minecraft.resources.ResourceKey;
@@ -15,8 +16,6 @@ import net.minecraft.world.level.levelgen.structure.templatesystem.ProcessorRule
 import net.minecraft.world.level.levelgen.structure.templatesystem.RuleProcessor;
 import net.minecraft.world.level.levelgen.structure.templatesystem.StructureProcessor;
 import net.minecraft.world.level.levelgen.structure.templatesystem.StructureProcessorList;
-
-import java.util.List;
 
 public class PrimordialPlayablesProcessorLists {
     public static final ResourceKey<StructureProcessorList> SMALL_FRUITFUL_MANGO_TREE = register("small_fruitful_mango_tree");

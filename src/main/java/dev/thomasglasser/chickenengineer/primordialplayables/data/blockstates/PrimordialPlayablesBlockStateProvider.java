@@ -5,6 +5,9 @@ import dev.thomasglasser.chickenengineer.primordialplayables.PrimordialPlayables
 import dev.thomasglasser.chickenengineer.primordialplayables.world.level.block.AgeingFruitfulLeavesBlock;
 import dev.thomasglasser.chickenengineer.primordialplayables.world.level.block.PrimordialPlayablesBlocks;
 import dev.thomasglasser.tommylib.api.data.blockstates.ExtendedBlockStateProvider;
+import java.util.function.BiConsumer;
+import java.util.function.Consumer;
+import java.util.function.Supplier;
 import net.minecraft.client.renderer.RenderType;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.data.PackOutput;
@@ -15,10 +18,6 @@ import net.minecraft.world.level.block.Blocks;
 import net.neoforged.neoforge.client.model.generators.ConfiguredModel;
 import net.neoforged.neoforge.common.data.ExistingFileHelper;
 import org.apache.commons.lang3.function.TriFunction;
-
-import java.util.function.BiConsumer;
-import java.util.function.Consumer;
-import java.util.function.Supplier;
 
 public class PrimordialPlayablesBlockStateProvider extends ExtendedBlockStateProvider {
     public PrimordialPlayablesBlockStateProvider(PackOutput output, ExistingFileHelper exFileHelper) {
@@ -36,9 +35,10 @@ public class PrimordialPlayablesBlockStateProvider extends ExtendedBlockStatePro
 
                     String name = loc.getPath() + "_stage" + age;
                     return ConfiguredModel.builder()
-                            .modelFile(age < AgeingFruitfulLeavesBlock.MAX_AGE ? models().leaves(name, modBlockModel(name)) : models().withExistingParent(name, modBlockModel(loc.getPath() + "_ripe"))
-                                    .texture("0", modBlockModel(name))
-                                    .texture("particle", modBlockModel(name)))
+                            .modelFile(age < AgeingFruitfulLeavesBlock.MAX_AGE ? models().leaves(name, modBlockModel(name))
+                                    : models().withExistingParent(name, modBlockModel(loc.getPath() + "_ripe"))
+                                            .texture("0", modBlockModel(name))
+                                            .texture("particle", modBlockModel(name)))
                             .build();
                 });
         models().withExistingParent(PrimordialPlayablesBlocks.KUDZU.getId().getPath(), BuiltInRegistries.BLOCK.getKey(Blocks.GLOW_LICHEN).withPrefix("block/"))

@@ -8,8 +8,9 @@ import dev.thomasglasser.tommylib.api.registration.DeferredRegister;
 import dev.thomasglasser.tommylib.api.world.level.block.BlockUtils;
 import dev.thomasglasser.tommylib.api.world.level.block.LeavesSet;
 import dev.thomasglasser.tommylib.api.world.level.block.WoodSet;
-import dev.thomasglasser.tommylib.api.world.level.block.grower.StructureGrower;
-import it.unimi.dsi.fastutil.objects.Object2ObjectLinkedOpenHashMap;
+import dev.thomasglasser.tommylib.api.world.level.block.grower.JigsawStructureGrower;
+import java.util.List;
+import java.util.function.Supplier;
 import net.minecraft.core.BlockPos;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.world.entity.EntityType;
@@ -24,21 +25,19 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.material.MapColor;
 import net.minecraft.world.level.material.PushReaction;
 
-import java.util.List;
-import java.util.function.Supplier;
-
 public class PrimordialPlayablesBlocks {
     public static final DeferredRegister.Blocks BLOCKS = DeferredRegister.createBlocks(PrimordialPlayables.MOD_ID);
 
     public static final WoodSet MANGO_WOOD = registerWoodSet("mango", MapColor.COLOR_ORANGE, MapColor.TERRACOTTA_ORANGE);
-    public static final LeavesSet MANGO_LEAVES = registerLeavesSet("mango", new StructureGrower("mango", new Object2ObjectLinkedOpenHashMap<>() {
-        {
-            // TODO: Chances and sapling count based
-            put((randomSource) -> randomSource.nextBoolean(), PrimordialPlayablesStructures.SMALL_MANGO_TREE);
-            put((randomSource) -> randomSource.nextBoolean(), PrimordialPlayablesStructures.MEDIUM_MANGO_TREE);
-            put((randomSource) -> randomSource.nextBoolean(), PrimordialPlayablesStructures.LARGE_MANGO_TREE);
+    public static final LeavesSet MANGO_LEAVES = registerLeavesSet("mango", new JigsawStructureGrower("mango", ((blockState, blockGetter, blockPos, randomSource) -> {
+        if (JigsawStructureGrower.isThreeByThreeSapling(blockState, blockGetter, blockPos)) {
+            return PrimordialPlayablesStructures.LARGE_MANGO_TREE;
+        } else if (JigsawStructureGrower.isTwoByTwoSapling(blockState, blockGetter, blockPos)) {
+            return PrimordialPlayablesStructures.MEDIUM_MANGO_TREE;
+        } else {
+            return PrimordialPlayablesStructures.SMALL_MANGO_TREE;
         }
-    }));
+    })));
     public static final DeferredBlock<AgeingFruitfulLeavesBlock> FRUITFUL_MANGO_LEAVES = registerWithItem("fruitful_mango_leaves", () -> new AgeingFruitfulLeavesBlock(PrimordialPlayablesItems.UNRIPE_MANGO, PrimordialPlayablesItems.MANGO, BlockBehaviour.Properties.of()
             .mapColor(MapColor.PLANT)
             .strength(0.2F)
@@ -65,7 +64,7 @@ public class PrimordialPlayablesBlocks {
         return BlockUtils.registerWoodSet(BLOCKS, name, plankColor, logColor, PrimordialPlayablesItems::register);
     }
 
-    private static LeavesSet registerLeavesSet(String name, StructureGrower structureGrower) {
+    private static LeavesSet registerLeavesSet(String name, JigsawStructureGrower structureGrower) {
         return BlockUtils.registerLeavesSet(BLOCKS, name, structureGrower, PrimordialPlayablesItems::register);
     }
 
