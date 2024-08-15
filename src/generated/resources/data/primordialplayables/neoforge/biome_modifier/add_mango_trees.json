@@ -1,0 +1,10 @@
+{
+  "type": "neoforge:add_features",
+  "biomes": "#primordialplayables:has_mango_trees",
+  "features": [
+    "primordialplayables:jungle_small_mango_trees",
+    "primordialplayables:jungle_medium_mango_trees",
+    "primordialplayables:jungle_large_mango_trees"
+  ],
+  "step": "vegetal_decoration"
+}

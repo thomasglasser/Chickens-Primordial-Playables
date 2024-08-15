@@ -1,15 +1,16 @@
 package dev.thomasglasser.chickenengineer.primordialplayables.world.level.block;
 
 import dev.thomasglasser.chickenengineer.primordialplayables.PrimordialPlayables;
+import dev.thomasglasser.chickenengineer.primordialplayables.data.worldgen.features.PrimordialPlayablesTreeFeatures;
 import dev.thomasglasser.chickenengineer.primordialplayables.world.item.PrimordialPlayablesItems;
-import dev.thomasglasser.chickenengineer.primordialplayables.world.level.levelgen.structure.PrimordialPlayablesStructures;
 import dev.thomasglasser.tommylib.api.registration.DeferredBlock;
 import dev.thomasglasser.tommylib.api.registration.DeferredRegister;
 import dev.thomasglasser.tommylib.api.world.level.block.BlockUtils;
 import dev.thomasglasser.tommylib.api.world.level.block.LeavesSet;
 import dev.thomasglasser.tommylib.api.world.level.block.WoodSet;
-import dev.thomasglasser.tommylib.api.world.level.block.grower.JigsawStructureGrower;
+import dev.thomasglasser.tommylib.api.world.level.block.grower.ExtendedTreeGrower;
 import java.util.List;
+import java.util.Optional;
 import java.util.function.Supplier;
 import net.minecraft.core.BlockPos;
 import net.minecraft.resources.ResourceKey;
@@ -29,15 +30,7 @@ public class PrimordialPlayablesBlocks {
     public static final DeferredRegister.Blocks BLOCKS = DeferredRegister.createBlocks(PrimordialPlayables.MOD_ID);
 
     public static final WoodSet MANGO_WOOD = registerWoodSet("mango", MapColor.COLOR_ORANGE, MapColor.TERRACOTTA_ORANGE);
-    public static final LeavesSet MANGO_LEAVES = registerLeavesSet("mango", new JigsawStructureGrower("mango", ((blockState, blockGetter, blockPos, randomSource) -> {
-        if (JigsawStructureGrower.isThreeByThreeSapling(blockState, blockGetter, blockPos)) {
-            return PrimordialPlayablesStructures.LARGE_MANGO_TREE;
-        } else if (JigsawStructureGrower.isTwoByTwoSapling(blockState, blockGetter, blockPos)) {
-            return PrimordialPlayablesStructures.MEDIUM_MANGO_TREE;
-        } else {
-            return PrimordialPlayablesStructures.SMALL_MANGO_TREE;
-        }
-    })));
+    public static final LeavesSet MANGO_LEAVES = registerLeavesSet("mango", new ExtendedTreeGrower("mango", 0.3F, Optional.of(PrimordialPlayablesTreeFeatures.LARGE_MANGO), Optional.empty(), Optional.of(PrimordialPlayablesTreeFeatures.MEDIUM_MANGO), Optional.empty(), Optional.of(PrimordialPlayablesTreeFeatures.SMALL_MANGO), Optional.of(PrimordialPlayablesTreeFeatures.FANCY_SMALL_MANGO), Optional.empty(), Optional.empty()));
     public static final DeferredBlock<AgeingFruitfulLeavesBlock> FRUITFUL_MANGO_LEAVES = registerWithItem("fruitful_mango_leaves", () -> new AgeingFruitfulLeavesBlock(PrimordialPlayablesItems.UNRIPE_MANGO, PrimordialPlayablesItems.MANGO, BlockBehaviour.Properties.of()
             .mapColor(MapColor.PLANT)
             .strength(0.2F)
@@ -64,7 +57,7 @@ public class PrimordialPlayablesBlocks {
         return BlockUtils.registerWoodSet(BLOCKS, name, plankColor, logColor, PrimordialPlayablesItems::register);
     }
 
-    private static LeavesSet registerLeavesSet(String name, JigsawStructureGrower structureGrower) {
+    private static LeavesSet registerLeavesSet(String name, ExtendedTreeGrower structureGrower) {
         return BlockUtils.registerLeavesSet(BLOCKS, name, structureGrower, PrimordialPlayablesItems::register);
     }
 

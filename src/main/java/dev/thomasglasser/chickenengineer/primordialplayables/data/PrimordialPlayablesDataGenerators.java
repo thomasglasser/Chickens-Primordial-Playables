@@ -10,9 +10,11 @@ import dev.thomasglasser.chickenengineer.primordialplayables.data.tags.Primordia
 import dev.thomasglasser.chickenengineer.primordialplayables.data.tags.PrimordialPlayablesBlockTagsProvider;
 import dev.thomasglasser.chickenengineer.primordialplayables.data.tags.PrimordialPlayablesItemTagsProvider;
 import dev.thomasglasser.chickenengineer.primordialplayables.data.worldgen.PrimordialPlayablesProcessorLists;
-import dev.thomasglasser.chickenengineer.primordialplayables.world.level.levelgen.structure.PrimordialPlayablesStructures;
-import dev.thomasglasser.chickenengineer.primordialplayables.world.level.levelgen.structure.placement.PrimordialPlayablesStructureSets;
-import dev.thomasglasser.chickenengineer.primordialplayables.world.level.levelgen.structure.pools.PrimordialPlayablesPools;
+import dev.thomasglasser.chickenengineer.primordialplayables.data.worldgen.biome.PrimordialPlayablesBiomeModifiers;
+import dev.thomasglasser.chickenengineer.primordialplayables.data.worldgen.features.PrimordialPlayablesTreeFeatures;
+import dev.thomasglasser.chickenengineer.primordialplayables.data.worldgen.features.PrimordialPlayablesVegetationFeatures;
+import dev.thomasglasser.chickenengineer.primordialplayables.data.worldgen.placement.PrimordialPlayablesTreePlacements;
+import dev.thomasglasser.chickenengineer.primordialplayables.data.worldgen.placement.PrimordialPlayablesVegetationPlacements;
 import java.util.Set;
 import java.util.concurrent.CompletableFuture;
 import net.minecraft.core.HolderLookup;
@@ -24,13 +26,20 @@ import net.neoforged.neoforge.common.data.BlockTagsProvider;
 import net.neoforged.neoforge.common.data.DatapackBuiltinEntriesProvider;
 import net.neoforged.neoforge.common.data.ExistingFileHelper;
 import net.neoforged.neoforge.data.event.GatherDataEvent;
+import net.neoforged.neoforge.registries.NeoForgeRegistries;
 
 public class PrimordialPlayablesDataGenerators {
     public static final RegistrySetBuilder BUILDER = new RegistrySetBuilder()
-            .add(Registries.TEMPLATE_POOL, PrimordialPlayablesPools::bootstrap)
             .add(Registries.PROCESSOR_LIST, PrimordialPlayablesProcessorLists::bootstrap)
-            .add(Registries.STRUCTURE, PrimordialPlayablesStructures::bootstrap)
-            .add(Registries.STRUCTURE_SET, PrimordialPlayablesStructureSets::bootstrap);
+            .add(Registries.CONFIGURED_FEATURE, context -> {
+                PrimordialPlayablesTreeFeatures.bootstrap(context);
+                PrimordialPlayablesVegetationFeatures.bootstrap(context);
+            })
+            .add(Registries.PLACED_FEATURE, context -> {
+                PrimordialPlayablesTreePlacements.bootstrap(context);
+                PrimordialPlayablesVegetationPlacements.bootstrap(context);
+            })
+            .add(NeoForgeRegistries.Keys.BIOME_MODIFIERS, PrimordialPlayablesBiomeModifiers::bootstrap);
 
     public static void onGatherData(GatherDataEvent event) {
         DataGenerator generator = event.getGenerator();

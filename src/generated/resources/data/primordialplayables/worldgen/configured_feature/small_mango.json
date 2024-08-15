@@ -1,0 +1,15 @@
+{
+  "type": "tommylib:nbt_feature",
+  "config": {
+    "allow_liquid": false,
+    "can_break_existing_blocks": false,
+    "height_offset": 0,
+    "nbt_entries": [
+      {
+        "id": "primordialplayables:mango_tree/small",
+        "weight": 1
+      }
+    ],
+    "processors": "primordialplayables:small_fruitful_mango_tree"
+  }
+}
